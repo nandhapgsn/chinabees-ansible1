@@ -1,0 +1,13 @@
+---
+
+-
+  hosts: 47.242.141.6
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Copying Files from Controller
+      copy:
+        content: "Welcome to the playbook"
+        dest: /tmp/playbook1.txt
+
+...

@@ -1,0 +1,29 @@
+---
+-
+  hosts: all
+  gather_facts: false
+  vars:
+   dict_name:
+     var_name: "Dictionary Example 1"
+   inline_list:
+     [Inline1, Inline2]
+  tasks:
+    - name: Print Dictionary
+      debug:
+        msg: "{{  dict_name.var_name }}"
+    - name: Print Inline List
+      debug:
+        msg: "{{  inline_list[0] }}"
+    - name: Create Multiple Users using Loop
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - sng1
+        - sng2
+        - sng3
+    - name: String Manipulation
+      debug:
+        msg: "{{  inline_list.1 | upper  }}"
+
+...
