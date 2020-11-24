@@ -1,0 +1,19 @@
+---
+
+-
+  hosts: 47.242.141.6
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Install nginx Web Server
+      apt:
+        name: nginx
+        state: present
+      notify: start nginx
+  handlers:
+    - name: start nginx
+      service:
+        name: nginx
+        state: present
+
+...
